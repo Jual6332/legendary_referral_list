@@ -5,6 +5,6 @@ A referral list application built for Ambassador Software Interview process. Bac
 
 ## Test Application
 From root directory,
-'''python
+```python
 python3 manage.py runserver
-'''
+```
