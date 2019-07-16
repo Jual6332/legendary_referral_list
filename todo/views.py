@@ -50,7 +50,7 @@ def completeTodo(request, todo_id):
 
     return redirect('landingpage')
 
-def editTodo(request,todo_id):
+def editTodo(request,todo_id,todo_text):
     # Delete Item
     todo = Todo.objects.get(pk=todo_id)
     todo.delete()
@@ -58,7 +58,7 @@ def editTodo(request,todo_id):
     # Save new item
     todo_list = Todo.objects.order_by('-hits')
     form = TodoForm()
-    context = {'todo_list' : todo_list, 'form' : form}
+    context = {'todo_list' : todo_list, 'form' : form, 'todo':todo}
 
     return render(request,'todo/edit_form.html',context)
 
