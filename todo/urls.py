@@ -8,8 +8,6 @@ urlpatterns = [
     path('add', views.addTodo, name='add'),
     path('edit/<todo_id>/<todo_text>', views.editTodo, name='editTodo'),
     path('save', views.saveTodo, name='save'),
-    path('complete/<todo_id>', views.completeTodo, name='complete'),
     path('delete/<todo_id>', views.deleteTodo, name='deleteTodo'),
-    path('deletecomplete', views.deleteCompleted, name='deletecomplete'),
     path('deleteall', views.deleteAll, name='deleteall')
 ]
