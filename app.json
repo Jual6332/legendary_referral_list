@@ -1,6 +1,6 @@
 {
-  "name": "Node.js Sample",
-  "description": "A barebones Node.js app using Express 4",
+  "name": "Legendary Referral List - Ambassador Project",
+  "description": "A full-stack Django and JavaScript app for tracking referral links.",
   "repository": "https://github.com/Jual6332/legendary_referral_list/",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
   "keywords": ["python", "django", "static"]
