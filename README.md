@@ -11,4 +11,4 @@ python3 manage.py runserver
 This will start the back-end server on localhost:8000.
 
 ## Heroku Deployment
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Jual6332/legendary_referral_list)
