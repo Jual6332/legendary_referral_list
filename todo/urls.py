@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('landingpage/<todo_id>', views.landingPage, name='landingpage'),
+    path('landingpage/<todo_id>/<todo_text>', views.landingPage, name='landingpage'),
     path('add', views.addTodo, name='add'),
     path('edit/<todo_id>', views.editTodo, name='editTodo'),
     path('save', views.saveTodo, name='save'),

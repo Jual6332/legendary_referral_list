@@ -4,24 +4,39 @@ from django.views.decorators.http import require_POST
 from .models import Todo
 from .forms import TodoForm
 
+numLandingPageVisits = 0;
+
 def index(request):
-    todo_list = Todo.objects.order_by('id')
+    # Serve landing_page.html
+    todo_list = Todo.objects.order_by('-hits')
     form = TodoForm()
     context = {'todo_list' : todo_list, 'form' : form}
 
     return render(request, 'todo/index.html', context)
 
-def landingPage(request, todo_id):
-    todo_list = Todo.objects.order_by('id')
+def landingPage(request, todo_id, todo_text):
+    # Declare global variable
+    global numLandingPageVisits;
+    numLandingPageVisits += 1
+
+    # Add 1 click
+    todo = Todo.objects.get(pk=todo_id)
+    todo.hits += 1
+    todo.save()
+
+    # Serve landing_page.html
+    todo_list = Todo.objects.order_by('-hits')
     form = TodoForm()
-    context = {'todo_list' : todo_list, 'form' : form}
+    context = {'todo': todo,'todo_list' : todo_list, 'form' : form, 'numLandingPageVisits': numLandingPageVisits}
 
     return render(request,'todo/landing_page.html',context)
 
 @require_POST
 def addTodo(request):
+    # POST request
     form = TodoForm(request.POST)
 
+    # Save new item
     if form.is_valid():
         new_todo = Todo(text=request.POST['text'])
         new_todo.save()
@@ -41,7 +56,7 @@ def editTodo(request,todo_id):
     todo.delete()
 
     # Save new item
-    todo_list = Todo.objects.order_by('id')
+    todo_list = Todo.objects.order_by('-hits')
     form = TodoForm()
     context = {'todo_list' : todo_list, 'form' : form}
 

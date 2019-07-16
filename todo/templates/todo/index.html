@@ -47,13 +47,7 @@
 
 					<ul class="list-group t20">
 						{% for todo in todo_list %}
-							{% if todo.complete %}
-							<li class="list-group-item todo-completed">{{ todo.text }}</li>
-							<a href="{% url 'deleteTodo' todo.id %}"><button type="button" class="btn btn-danger">
-								<i class="glyphicon glyphicon-trash"></i>
-							</button></a>
-							{% else %}
-							<a href="{% url 'landingpage' todo.text %}"><li class="list-group-item">{{ todo.text }}</li></a>
+							<a href="{% url 'landingpage' todo.id todo.text %}"><li class="list-group-item">{{ todo.text }} - {{ todo.hits }} clicks</li></a>
 							<div class="btn-group">
 								<a href="{% url 'editTodo' todo.id %}"><button type="button" class="btn btn-secondary">
 									<i class="glyphicon glyphicon-pencil"></i>
@@ -63,7 +57,6 @@
 								</button></a>
 								<br/>
 							</div>
-							{% endif %}
 						{% endfor %}
 					</ul>
 				</div>

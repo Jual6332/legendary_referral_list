@@ -19,7 +19,8 @@
 
 			<div class="row">
 				<div class="col-lg-4 col-lg-offset-4" id="content">
-					<h2>WHAT DO YOU WANT TO DO TODAY???</h2>
+					<h1>{{todo.text}} are the best!</h1>
+					<h3>You are Landing Page visitor number: {{ numLandingPageVisits }}</h3>
 
 					<form action="{% url 'add' %}" method="POST" role="form">
 						{% csrf_token %}
@@ -37,28 +38,13 @@
 						<div class="col-lg-12">
 							<div class="btn-toolbar">
 								<div class="btn-group">
-									<a href="{% url 'deletecomplete' %}"><button type="button" class="btn btn-warning">
-										<i class="glyphicon glyphicon-trash"></i> DELETE COMPLETED
-									</button></a>
-								</div>
-								<div class="btn-group">
-									<a href="{% url 'deleteall' %}"><button type="button" class="btn btn-warning">
-										<i class="glyphicon glyphicon-trash"></i> DELETE ALL
+									<a href="{% url 'index' %}"><button type="button" class="btn btn-warning">
+										<i class="glyphicon glyphicon-home"></i> HomePage
 									</button></a>
 								</div>
 							</div>
 						</div>
 					</div>
-
-					<ul class="list-group t20">
-						{% for todo in todo_list %}
-							{% if todo.complete %}
-							<li class="list-group-item todo-completed">{{ todo.text }}</li>
-							{% else %}
-							<a href="{% url 'landingpage' todo.text %}"><li class="list-group-item">{{ todo.text }}</li></a>
-							{% endif %}
-						{% endfor %}
-					</ul>
 				</div>
 			</div>
 
