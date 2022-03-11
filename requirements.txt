@@ -12,7 +12,7 @@ lxml==3.5.0
 Magic-file-extensions==0.2
 matplotlib==1.5.1
 numpy==1.11.0
-Pillow==3.1.2
+Pillow==9.0.1
 ply==3.11
 pygame===1.9.1release
 pygpgme==0.3
