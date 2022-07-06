@@ -7,7 +7,7 @@ decorator==4.0.6
 defusedxml==0.4.1
 django==2.2.3
 geopy==1.11.0
-html5lib==0.999
+html5lib==0.999999999
 lxml==3.5.0
 Magic-file-extensions==0.2
 matplotlib==1.5.1
